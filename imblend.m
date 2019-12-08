@@ -19,19 +19,13 @@ function  output = imblend( source, mask, target, transparent )
     for row = 1:sc_rows
         for col = 1: sc_cols
             if mask(row,col,:) == 1
-                
-
-                
+                %while we are here, pad the mask
                 if row == 1 || row == sc_rows || col == 1 || col == sc_cols
                     mask(row,col,:) = 0; 
-                    
                 else
                     idx = idx + 1;
                     location(row,col) = idx;
                 end
-                %while we are here, pad the mask
-                
-                
             end
         end
     end
