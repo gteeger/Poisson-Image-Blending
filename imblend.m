@@ -5,17 +5,13 @@ function  output = imblend( source, mask, target, transparent )
     %rather than the source gradient).
     
     lap_mask=[0 1 0; 1 -4 1; 0 1 0];
-    
-    %output = source .* mask + target .* ~mask;
 
-    
     [sc_rows, sc_cols, sc_z] = size(source);
     [tg_rows, tg_cols, tg_z] = size(target);
 
     location = zeros(sc_rows, sc_cols);
     idx = 0;
-    %we need a lookup table for the image
-    
+
     for row = 1:sc_rows
         for col = 1: sc_cols
             if mask(row,col,:) == 1
@@ -37,7 +33,6 @@ function  output = imblend( source, mask, target, transparent )
     for z = 1:sc_z %RGB
         tic
         temp_result = zeros(sc_rows,sc_cols);
-        %create the laplacian of the source image
         
         idx = 0;
         A = spalloc(total_idx, total_idx,total_idx);
@@ -51,8 +46,6 @@ function  output = imblend( source, mask, target, transparent )
                 if mask(row,col,:) == 1
                     idx = idx + 1;
                     A(idx,idx) = 4;
-                    
-                    %%%%%%%%%%%%BORDER CASES
                     
                     
                     %look up
