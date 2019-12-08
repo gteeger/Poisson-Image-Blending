@@ -1,25 +1,8 @@
-% Starter script for CSCI 1290 project on Poisson blending.
-% Written by James Hays and Pat Doran.
-% imblend.m is the function where you will implement your blending method.
-% By default, imblend.m performs a direct composite.
-
 close all
 clear all;
 
 data_dir = 'data';
 out_dir = 'results';
-
-%there are four inputs for each compositing operation --
-% 1. 'source' image. Parts of this image will be inserted into 'target'
-% 2. 'mask' image. This binary image, the same size as 'source', specifies
-%     which pixels will be copied to 'target'
-% 3. 'target' image. This is the destination for the 'source' pixels under
-%     the 'mask'
-% 4. 'offset' vector. This specifies how much to translate the 'source'
-%     pixels when copying them to 'target'. These vectors are hard coded
-%     below for the default test cases. They are of the form [y, x] where
-%     positive values mean shifts down and to the right, respectively.
-
 
 charlie_offset = [ 865  675 ];
 
